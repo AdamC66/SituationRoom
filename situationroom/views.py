@@ -11,6 +11,10 @@ class GenericGetAndListAPIView(generics.GenericAPIView, mixins.ListModelMixin):
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
+        if self.pagination_class:
+            queryset = self.paginate_queryset(queryset)
+            serializer = self.list_read_serializer(queryset, many=True)
+            return self.get_paginated_response(serializer.data)
         serializer = self.list_read_serializer(queryset, many=True)
         return Response(serializer.data)
 

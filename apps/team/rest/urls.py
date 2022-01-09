@@ -1,5 +1,5 @@
 from django.conf.urls.static import static
-from django.urls import re_path, path
+from django.urls import re_path, path, include
 from apps.team.rest.api import TeamViewSet
 
 urlpatterns = [

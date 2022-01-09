@@ -31,6 +31,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/", include("apps.situationroom_user.rest.urls")),
     path("api/v1/", include("apps.team.rest.urls")),
+    path("api/v1/", include("apps.player.rest.urls")),
     path("heartbeat/", include("apps.common.rest.urls")),
     path("api/", include("rest_framework.urls")),
 ]
